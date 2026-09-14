@@ -12,31 +12,8 @@ export const metadata: Metadata = {
 
 function SiteNavbar() {
   return (
-    <header
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        borderBottom: '1px solid rgba(255,255,255,0.05)',
-        background: 'rgba(13,13,13,0.95)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: 1280,
-          margin: '0 auto',
-          padding: '0 24px',
-          height: 64,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 16,
-        }}
-      >
+    <header className="site-header">
+      <div className="site-header-inner">
         {/* Logo */}
         <Link
           href="/"
@@ -76,13 +53,7 @@ function SiteNavbar() {
         </Link>
 
         {/* Navigation */}
-        <nav
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 28,
-          }}
-        >
+        <nav className="navbar-nav">
           {[
             { href: '/', label: 'Home' },
             { href: '/#about', label: 'About' },
@@ -132,31 +103,11 @@ function SiteNavbar() {
 
 function SiteFooter() {
   return (
-    <footer
-      style={{
-        background: '#060606',
-        borderTop: '1px solid rgba(212,160,23,0.15)',
-        marginTop: 96,
-        padding: '64px 24px',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: 1280,
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: 48,
-        }}
-      >
+    <footer className="site-footer">
+      <div className="site-footer-inner">
+        <div className="site-footer-grid">
         {/* Brand */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 16,
-          }}
-        >
+        <div>
           <Link
             href="/"
             style={{
@@ -398,22 +349,11 @@ function SiteFooter() {
             </a>
           </div>
         </div>
+        </div>
       </div>
 
       {/* Bottom bar */}
-      <div
-        style={{
-          maxWidth: 1280,
-          margin: '48px auto 0',
-          paddingTop: 24,
-          borderTop: '1px solid rgba(212,160,23,0.08)',
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: 12,
-        }}
-      >
+      <div className="footer-bottom">
         <p
           style={{
             fontSize: 12,
@@ -476,7 +416,7 @@ export default function RootLayout({
         <Providers>
           <SiteNavbar />
 
-          <div style={{ paddingTop: 64 }}>
+          <div className="site-content">
             {children}
           </div>
 

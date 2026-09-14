@@ -83,12 +83,12 @@ export default function OccasionPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0D0D0D] text-white pb-12">
+    <main className="booking-page min-h-screen bg-[#0D0D0D] text-white pb-12">
       <BookingStepIndicator steps={BOOKING_STEPS} currentStep={3} />
 
-      <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="booking-container max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-6">
-          <div className="border-b border-white/5 pb-4">
+          <div className="page-heading border-b border-white/5 pb-4">
             <h1 className="text-3xl font-extrabold tracking-tight text-white flex items-center gap-3" style={{ fontFamily: 'var(--font-display)' }}>
               Personalize Celebration Layout
             </h1>
@@ -151,7 +151,7 @@ export default function OccasionPage() {
 
         {/* Invoice Sidebar */}
         <div className="space-y-4">
-          <div className="p-6 rounded-2xl border border-white/10 bg-[#1A1A1A] sticky top-6 space-y-6">
+          <div className="invoice-card p-6 rounded-2xl border border-white/10 bg-[#1A1A1A] sticky top-6 space-y-6">
             <h3 className="text-lg font-bold tracking-wide border-b border-white/5 pb-3">Reservation Invoice Overview</h3>
 
             <div className="space-y-3 text-sm">
@@ -191,7 +191,7 @@ export default function OccasionPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 pt-2">
+            <div className="booking-actions grid grid-cols-3 gap-2 pt-2">
               <button type="button" onClick={handleBack}
                 className="px-4 py-4 bg-[#0D0D0D] border border-white/10 hover:bg-white/5 transition-all rounded-2xl text-[#888] hover:text-white flex items-center justify-center">
                 <ArrowLeft size={18} />

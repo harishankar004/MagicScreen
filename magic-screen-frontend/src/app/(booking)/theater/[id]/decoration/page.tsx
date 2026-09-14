@@ -61,20 +61,20 @@ export default function DecorationPage() {
   };
 
   return (
-    <main style={{ minHeight: '100vh', background: '#0D0D0D', color: '#fff', paddingBottom: 60 }}>
+    <main className="booking-page decoration-page" style={{ minHeight: '100vh', background: '#0D0D0D', color: '#fff', paddingBottom: 60 }}>
       <BookingStepIndicator steps={BOOKING_STEPS} currentStep={1} />
 
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 16px', display: 'grid', gridTemplateColumns: 'minmax(0,2fr) minmax(260px,1fr)', gap: 32, alignItems: 'start' }}>
+      <div className="decoration-layout" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 16px', display: 'grid', gridTemplateColumns: 'minmax(0,2fr) minmax(260px,1fr)', gap: 32, alignItems: 'start' }}>
 
         {/* Left */}
         <div>
-          <div style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: 20, marginBottom: 28 }}>
+          <div className="page-heading" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: 20, marginBottom: 28 }}>
             <h1 style={{ fontSize: 32, fontWeight: 900, fontFamily: 'var(--font-display)', marginBottom: 6 }}>Choose Your Decoration</h1>
             <p style={{ color: '#777', fontSize: 14 }}>Select a decoration package for <strong style={{ color: '#fff' }}>{store.theaterName}</strong>. You can also skip this step.</p>
           </div>
 
           {/* Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 16 }}>
+          <div className="decoration-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 16 }}>
             {DECORATIONS.map((dec) => {
               const isSelected = selectedId === dec.id;
               return (
@@ -149,8 +149,8 @@ export default function DecorationPage() {
         </div>
 
         {/* Right — Invoice Sidebar */}
-        <div style={{ position: 'sticky', top: 24 }}>
-          <div style={{ background: '#1A1A1A', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 20, padding: 24 }}>
+        <div className="decoration-invoice-wrap" style={{ position: 'sticky', top: 24 }}>
+          <div className="invoice-card" style={{ background: '#1A1A1A', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 20, padding: 24 }}>
             <h3 style={{ fontSize: 18, fontWeight: 700, borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: 14, marginBottom: 20 }}>Invoice Overview</h3>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, fontSize: 14 }}>

@@ -10,7 +10,7 @@ interface Props {
 
 export default function BookingStepIndicator({ steps, currentStep }: Props) {
   return (
-    <div className="w-full bg-[#0D0D0D] border-b border-white/8 mb-8">
+    <div className="booking-step-indicator w-full bg-[#0D0D0D] border-b border-white/8 mb-8">
       <div className="max-w-5xl mx-auto px-3 sm:px-6 py-4 sm:py-6">
         <div className="flex items-center justify-between relative w-full">
 

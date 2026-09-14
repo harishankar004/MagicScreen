@@ -77,10 +77,10 @@ export default function SummaryPage() {
   );
 
   return (
-    <main className="min-h-screen bg-[#0D0D0D] text-white pb-16">
+    <main className="booking-page min-h-screen bg-[#0D0D0D] text-white pb-16">
       <BookingStepIndicator steps={BOOKING_STEPS} currentStep={8} />
 
-      <div className="max-w-5xl mx-auto px-4">
+      <div className="booking-container max-w-5xl mx-auto px-4">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#D4A017]/10 border border-[#D4A017]/20 rounded-full text-xs text-[#D4A017] font-bold tracking-wider mb-4">
             <CheckCircle2 size={12} /> FINAL REVIEW
@@ -96,7 +96,7 @@ export default function SummaryPage() {
           <div className="lg:col-span-3 space-y-5">
 
             {/* Core Booking Info */}
-            <div className="bg-[#1A1A1A] border border-white/10 rounded-2xl p-6">
+            <div className="booking-card bg-[#1A1A1A] border border-white/10 rounded-2xl p-6">
               <h2 className="text-xs text-[#D4A017] font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
                 <Film size={12} /> Booking Details
               </h2>
@@ -108,7 +108,7 @@ export default function SummaryPage() {
 
             {/* Decoration */}
             {decorationPrice > 0 && (
-              <div className="bg-[#1A1A1A] border border-white/10 rounded-2xl p-6">
+              <div className="booking-card bg-[#1A1A1A] border border-white/10 rounded-2xl p-6">
                 <h2 className="text-xs text-[#D4A017] font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
                   ✨ Decoration Package
                 </h2>
@@ -121,7 +121,7 @@ export default function SummaryPage() {
 
             {/* Extra Guests */}
             {(store.extraAdults > 0 || store.extraChildren > 0) && (
-              <div className="bg-[#1A1A1A] border border-white/10 rounded-2xl p-6">
+              <div className="booking-card bg-[#1A1A1A] border border-white/10 rounded-2xl p-6">
                 <h2 className="text-xs text-[#D4A017] font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
                   <Users size={12} /> Extra Guests
                 </h2>
@@ -146,7 +146,7 @@ export default function SummaryPage() {
 
             {/* Cake & Add-Ons */}
             {(cakePrice > 0 || addonTotal > 0) && (
-              <div className="bg-[#1A1A1A] border border-white/10 rounded-2xl p-6">
+              <div className="booking-card bg-[#1A1A1A] border border-white/10 rounded-2xl p-6">
                 <h2 className="text-xs text-[#D4A017] font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
                   <Cake size={12} /> Extras & Add-Ons
                 </h2>
@@ -167,7 +167,7 @@ export default function SummaryPage() {
 
             {/* Food */}
             {foodTotal > 0 && (
-              <div className="bg-[#1A1A1A] border border-white/10 rounded-2xl p-6">
+              <div className="booking-card bg-[#1A1A1A] border border-white/10 rounded-2xl p-6">
                 <h2 className="text-xs text-[#D4A017] font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
                   <Utensils size={12} /> Food & Beverages
                 </h2>
@@ -183,7 +183,7 @@ export default function SummaryPage() {
             )}
 
             {/* Contact Info */}
-            <div className="bg-[#1A1A1A] border border-white/10 rounded-2xl p-6">
+            <div className="booking-card bg-[#1A1A1A] border border-white/10 rounded-2xl p-6">
               <h2 className="text-xs text-[#D4A017] font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
                 <Users size={12} /> Contact Details
               </h2>
@@ -204,7 +204,7 @@ export default function SummaryPage() {
 
           {/* Right — Payment Sidebar */}
           <div className="lg:col-span-2 space-y-5">
-            <div className="bg-[#1A1A1A] border border-white/10 rounded-2xl p-6 sticky top-6 space-y-5">
+            <div className="booking-card bg-[#1A1A1A] border border-white/10 rounded-2xl p-6 sticky top-6 space-y-5">
               <h3 className="font-bold text-white border-b border-white/5 pb-3 flex items-center gap-2">
                 <CreditCard size={15} className="text-[#D4A017]" /> Payment Breakdown
               </h3>

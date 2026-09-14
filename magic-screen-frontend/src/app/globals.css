@@ -6,87 +6,185 @@
 
 :root {
   --gold: #D4A017;
-  --gold-dim: rgba(212,160,23,0.6);
-  --gold-faint: rgba(212,160,23,0.08);
+  --gold-bright: #F2C94C;
+  --gold-light: #F5D67B;
+  --gold-dim: rgba(212, 160, 23, 0.62);
+  --gold-faint: rgba(212, 160, 23, 0.08);
+  --bg: #080808;
+  --surface: #111111;
+  --surface-2: #171717;
+  --surface-3: #1d1d1d;
+  --muted: #8b8b8b;
   --font-display: 'Outfit', sans-serif;
   --font-sans: 'Outfit', sans-serif;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #0D0D0D;
-  color: #ffffff;
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(212, 160, 23, 0.07), transparent 28rem),
+    radial-gradient(circle at 88% 18%, rgba(212, 160, 23, 0.035), transparent 24rem),
+    var(--bg);
+  color: #fff;
   font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #0D0D0D; }
-::-webkit-scrollbar-thumb { background: #1A1A1A; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #D4A017; }
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-sans);
+}
 
-/* ── Reusable component classes ── */
+button {
+  color: inherit;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #555;
+  opacity: 1;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(212, 160, 23, 0.28);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #292929;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* -------------------- Global reusable buttons -------------------- */
+
 .gold-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 14px 32px;
-  background: #D4A017;
-  color: #000;
+  min-height: 46px;
+  padding: 13px 24px;
+  background: linear-gradient(135deg, #D4A017, #E8B420);
+  color: #080808;
   font-weight: 800;
-  font-size: 16px;
-  border-radius: 16px;
-  border: none;
+  font-size: 15px;
+  line-height: 1;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 224, 125, 0.2);
   cursor: pointer;
-  transition: all 0.2s;
+  box-shadow: 0 8px 28px rgba(212, 160, 23, 0.16);
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
-.gold-btn:hover {
-  background: #E8B420;
-  transform: scale(1.04);
-  box-shadow: 0 0 40px rgba(212,160,23,0.45);
+
+.gold-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 12px 36px rgba(212, 160, 23, 0.28);
 }
+
+.gold-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
 .gold-btn:disabled {
-  opacity: 0.4;
+  opacity: 0.38;
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
 }
 
 .ghost-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 14px 32px;
-  background: transparent;
+  min-height: 46px;
+  padding: 13px 24px;
+  background: rgba(255, 255, 255, 0.025);
   color: #fff;
   font-weight: 600;
-  font-size: 16px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.12);
+  font-size: 15px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 180ms ease;
 }
+
 .ghost-btn:hover {
-  border-color: rgba(212,160,23,0.5);
-  color: #D4A017;
-  background: rgba(212,160,23,0.04);
+  border-color: rgba(212, 160, 23, 0.5);
+  color: var(--gold);
+  background: rgba(212, 160, 23, 0.05);
 }
 
 .dark-card {
-  background: #111;
-  border: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(145deg, #151515, #101010);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 20px;
-  transition: all 0.3s;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
+
 .dark-card:hover {
-  border-color: rgba(212,160,23,0.35);
-  box-shadow: 0 8px 40px rgba(212,160,23,0.08);
+  border-color: rgba(212, 160, 23, 0.35);
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.35), 0 0 30px rgba(212, 160, 23, 0.06);
+  transform: translateY(-2px);
 }
 
 .gold-card {
-  background: #1A1A1A;
-  border: 1px solid #D4A017;
+  background: linear-gradient(145deg, rgba(212, 160, 23, 0.1), #151515);
+  border: 1px solid rgba(212, 160, 23, 0.75);
   border-radius: 20px;
-  box-shadow: 0 0 30px rgba(212,160,23,0.2);
+  box-shadow: 0 0 35px rgba(212, 160, 23, 0.13);
 }
 
 .section-label {
@@ -95,23 +193,460 @@ body {
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: #D4A017;
+  color: var(--gold);
   margin-bottom: 12px;
 }
 
 .whatsapp-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 10px 18px;
+  min-height: 42px;
+  padding: 10px 17px;
   background: #25D366;
   color: #fff;
   font-weight: 700;
   font-size: 14px;
   border-radius: 12px;
-  transition: all 0.2s;
+  text-decoration: none;
+  transition: all 180ms ease;
 }
+
 .whatsapp-btn:hover {
   background: #1fb855;
-  box-shadow: 0 0 20px rgba(37,211,102,0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 0 22px rgba(37, 211, 102, 0.3);
+}
+
+/* -------------------- Site chrome -------------------- */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: 68px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+  background: rgba(8, 8, 8, 0.82);
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+}
+
+.site-header-inner {
+  width: min(1280px, 100%);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.magic-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.magic-logo-link img {
+  border-radius: 50%;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-left: auto;
+}
+
+.navbar-link,
+.book-now-link,
+.footer-link,
+.footer-bottom-link {
+  text-decoration: none;
+}
+
+.navbar-link {
+  position: relative;
+  padding: 8px 0;
+  color: #aaa;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 180ms ease;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: center;
+  background: var(--gold);
+  transition: transform 180ms ease;
+}
+
+.navbar-link:hover {
+  color: #fff;
+}
+
+.navbar-link:hover::after {
+  transform: scaleX(1);
+}
+
+.book-now-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 9px 18px;
+  background: linear-gradient(135deg, #D4A017, #E8B420);
+  color: #000;
+  font-size: 13px;
+  font-weight: 800;
+  border-radius: 12px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  box-shadow: 0 7px 22px rgba(212, 160, 23, 0.16);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.book-now-link:hover {
+  color: #000;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(212, 160, 23, 0.27);
+}
+
+.site-footer {
+  background:
+    radial-gradient(circle at 50% 0, rgba(212, 160, 23, 0.05), transparent 30rem),
+    #050505;
+  border-top: 1px solid rgba(212, 160, 23, 0.13);
+  margin-top: 80px;
+  padding: 58px 24px 28px;
+}
+
+.site-footer-inner {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+.site-footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr 1fr;
+  gap: 48px;
+}
+
+.social-link {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #111;
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 180ms ease;
+}
+
+.social-link:hover {
+  background: rgba(212, 160, 23, 0.1);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.footer-link,
+.footer-bottom-link {
+  transition: color 180ms ease;
+}
+
+.footer-link:hover,
+.footer-bottom-link:hover {
+  color: #fff !important;
+}
+
+.footer-bottom {
+  width: min(1280px, 100%);
+  margin: 44px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(212, 160, 23, 0.08);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* -------------------- Booking flow -------------------- */
+
+.booking-page {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - 68px);
+  padding-bottom: 48px;
+  background:
+    radial-gradient(circle at 8% 0, rgba(212, 160, 23, 0.055), transparent 25rem),
+    radial-gradient(circle at 92% 25%, rgba(212, 160, 23, 0.025), transparent 24rem),
+    #0b0b0b;
+}
+
+.booking-page .booking-container {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.booking-page .booking-card {
+  background: linear-gradient(145deg, rgba(28, 28, 28, 0.96), rgba(18, 18, 18, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 20px;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.18);
+}
+
+.booking-page .page-heading {
+  position: relative;
+}
+
+.booking-page .page-heading::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin-top: 16px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  border-radius: 999px;
+}
+
+.booking-page .invoice-card {
+  background: linear-gradient(145deg, #191919, #111);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+}
+
+.booking-page .invoice-card .gold-btn {
+  box-shadow: 0 8px 28px rgba(212, 160, 23, 0.2);
+}
+
+.booking-page input,
+.booking-page textarea,
+.booking-page select {
+  color-scheme: dark;
+}
+
+.booking-page .booking-actions {
+  padding-bottom: max(4px, env(safe-area-inset-bottom));
+}
+
+/* The invoice is useful on desktop, but sticky cards are awkward on phones. */
+@media (max-width: 1023px) {
+  .booking-page .sticky {
+    position: static !important;
+    top: auto !important;
+  }
+}
+
+/* -------------------- Responsive -------------------- */
+
+@media (max-width: 900px) {
+  .site-header {
+    height: 62px;
+  }
+
+  .site-header-inner {
+    padding: 0 16px;
+    gap: 10px;
+  }
+
+  .navbar-nav {
+    display: none;
+  }
+
+  .book-now-link {
+    min-height: 38px;
+    padding: 8px 14px;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+
+  .booking-page {
+    min-height: calc(100vh - 62px);
+  }
+
+  .booking-page .booking-container {
+    padding: 0 14px;
+  }
+
+  .site-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header-inner {
+    padding: 0 12px;
+  }
+
+  .magic-logo-link {
+    gap: 8px;
+  }
+
+  .magic-logo-link img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .magic-logo-link span {
+    font-size: 15px !important;
+  }
+
+  .booking-page {
+    padding-bottom: 30px;
+  }
+
+  .booking-page .booking-container {
+    padding: 0 12px;
+  }
+
+  .booking-page .page-heading {
+    padding-bottom: 14px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .booking-page .page-heading h1 {
+    font-size: 26px !important;
+    line-height: 1.12;
+  }
+
+  .booking-page .booking-card,
+  .booking-page .invoice-card {
+    border-radius: 16px;
+  }
+
+  .booking-page .booking-card {
+    padding: 18px !important;
+  }
+
+  .booking-page .invoice-card {
+    padding: 18px !important;
+  }
+
+  .booking-page .booking-actions {
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+  }
+
+  .booking-page .booking-actions button {
+    min-height: 48px;
+    padding: 11px 12px !important;
+    border-radius: 13px !important;
+  }
+
+  .site-footer {
+    margin-top: 55px;
+    padding: 42px 18px 24px;
+  }
+
+  .site-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    margin-top: 34px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-bottom > div {
+    flex-wrap: wrap;
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .magic-logo-link span {
+    font-size: 14px !important;
+  }
+
+  .book-now-link {
+    padding: 8px 11px;
+    font-size: 11px;
+  }
+}
+
+.site-content { padding-top: 68px; }
+@media (max-width: 900px) { .site-content { padding-top: 62px; } }
+
+.booking-step-indicator {
+  background:
+    linear-gradient(180deg, rgba(212,160,23,0.025), transparent),
+    #0b0b0b !important;
+}
+
+@media (max-width: 640px) {
+  .booking-step-indicator {
+    margin-bottom: 22px;
+  }
+
+  .booking-step-indicator > div {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .booking-step-indicator .w-7,
+  .booking-step-indicator .sm\:w-8 {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .booking-step-indicator .absolute {
+    top: 13px !important;
+  }
+}
+
+/* Decoration page uses a few legacy inline styles; these classes make them mobile-safe. */
+.decoration-page .decoration-layout {
+  width: min(1100px, 100%);
+}
+
+@media (max-width: 900px) {
+  .decoration-page .decoration-layout {
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+  }
+
+  .decoration-page .decoration-invoice-wrap {
+    position: static !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .decoration-page .decoration-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .decoration-page .page-heading h1 {
+    font-size: 26px !important;
+    line-height: 1.12 !important;
+  }
+
+  .decoration-page .decoration-grid > button > div[style*="height: 180px"] {
+    height: 165px !important;
+  }
+
+  .decoration-page .invoice-card {
+    border-radius: 16px !important;
+    padding: 18px !important;
+  }
 }

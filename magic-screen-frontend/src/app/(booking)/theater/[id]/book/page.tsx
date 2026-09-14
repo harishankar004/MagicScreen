@@ -160,12 +160,12 @@ export default function BookSlotPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#0D0D0D] text-white pb-12">
+    <main className="booking-page min-h-screen bg-[#0D0D0D] text-white pb-12">
       <BookingStepIndicator steps={BOOKING_STEPS} currentStep={2} />
 
-      <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="booking-container max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-6">
-          <div className="border-b border-white/5 pb-4">
+          <div className="page-heading border-b border-white/5 pb-4">
             <div className="flex items-center gap-3 mb-1 flex-wrap">
               <h1 className="text-3xl font-extrabold tracking-tight text-white flex items-center gap-3" style={{ fontFamily: 'var(--font-display)' }}>
                 <Film className="text-[#D4A017]" /> Reserve Screen Profile
@@ -217,7 +217,7 @@ export default function BookSlotPage() {
               </div>
             </div>
           ) : (
-            <div className="bg-[#1A1A1A] border border-white/10 rounded-2xl p-6 space-y-5">
+            <div className="booking-card bg-[#1A1A1A] border border-white/10 rounded-2xl p-6 space-y-5">
               <div className="flex items-center gap-2 border-b border-white/5 pb-4">
                 <Users size={18} className="text-[#D4A017]" />
                 <h2 className="font-bold text-white">Extra Guests</h2>
@@ -271,7 +271,7 @@ export default function BookSlotPage() {
 
         {/* Invoice Sidebar */}
         <div className="space-y-4">
-          <div className="p-6 rounded-2xl border border-white/10 bg-[#1A1A1A] sticky top-6 space-y-6">
+          <div className="invoice-card p-6 rounded-2xl border border-white/10 bg-[#1A1A1A] sticky top-6 space-y-6">
             <h3 className="text-lg font-bold tracking-wide border-b border-white/5 pb-3">Reservation Invoice Overview</h3>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between items-center text-[#888]">

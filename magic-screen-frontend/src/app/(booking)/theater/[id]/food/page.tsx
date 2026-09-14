@@ -144,12 +144,12 @@ export default function FoodSelectionPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0D0D0D] text-white pb-12">
+    <main className="booking-page min-h-screen bg-[#0D0D0D] text-white pb-12">
       <BookingStepIndicator steps={BOOKING_STEPS} currentStep={6} />
 
-      <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="booking-container max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-6">
-          <div className="border-b border-white/5 pb-4">
+          <div className="page-heading border-b border-white/5 pb-4">
             <h1 className="text-3xl font-extrabold tracking-tight text-white" style={{ fontFamily: 'var(--font-display)' }}>
               In-Theater Gourmet Catering
             </h1>
@@ -228,7 +228,7 @@ export default function FoodSelectionPage() {
 
         {/* Invoice Sidebar */}
         <div>
-          <div className="p-6 rounded-2xl border border-white/10 bg-[#1A1A1A] sticky top-6 space-y-5">
+          <div className="invoice-card p-6 rounded-2xl border border-white/10 bg-[#1A1A1A] sticky top-6 space-y-5">
             <h3 className="text-lg font-bold tracking-wide border-b border-white/5 pb-3">Reservation Invoice Overview</h3>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between text-[#888]"><span>Base Screen Fee:</span><span className="text-white font-mono">₹{basePrice}</span></div>

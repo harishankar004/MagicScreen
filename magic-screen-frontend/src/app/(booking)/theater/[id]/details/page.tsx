@@ -49,7 +49,7 @@ const handleContinue = () => {
 };
 
   return (
-    <main className="min-h-screen bg-[#0D0D0D] text-white pb-12">
+    <main className="booking-page min-h-screen bg-[#0D0D0D] text-white pb-12">
       <BookingStepIndicator steps={BOOKING_STEPS} currentStep={7} />
 
       <div className="max-w-2xl mx-auto px-4 mt-8">
